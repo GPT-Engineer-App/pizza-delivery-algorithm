@@ -1,0 +1,27 @@
+import math
+
+# Input reading
+L, T = map(int, input().strip().split())
+K = int(input().strip())
+v1, v2 = 21, 12  # Speeds on city streets and in the park
+
+# Calculate distances
+distance_city_streets = K
+distance_park = L - K
+
+# Calculate times in seconds
+time_city_streets = distance_city_streets / v1
+time_park = distance_park / v2
+
+# Total time in seconds
+total_time_seconds = time_city_streets + time_park
+
+# Convert total time to minutes
+total_time_minutes = total_time_seconds / 60
+
+# Compare with given time T and output the result
+if total_time_minutes <= T:
+    print("The pizza will be delivered on time")
+else:
+    delay_minutes = math.ceil(total_time_minutes - T)
+    print(f"Algorithmius will be {delay_minutes} minutes late")
